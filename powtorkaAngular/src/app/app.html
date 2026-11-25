@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="app.css" />
+<div class="bod">
+  <h2>Lista zadań</h2>
+  <div class="form">
+    <input id="name" type="text" placeholder="Dodaj zadanie" [(ngModel)]="name" />
+    <input id="date" type="date" placeholder="podaj Date" [(ngModel)]="date" />
+    <button id="save" (click)="addTask(); save()">Dodaj zadanie</button>
+  </div>
+  <div class="list">
+    <ul>
+      @for (task of Tasks; track $index) {
+        <li>
+          <button id="delete" (click)="remove($index)">Usuń</button>
+          {{ task.name }} {{ task.date }}
+        </li>
+      }
+    </ul>
+  </div>
+</div>
